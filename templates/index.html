@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Inkrift</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-container">
+        <img src="{{ url_for('static', filename='images/rift_center.png') }}" alt="Rift" class="rift-center">
+    </div>
+
+    <div class="top-banner"></div>
+
+    <div class="title-area">
+        <h1 class="title">Inkrift</h1>
+        <p class="tagline">Where Stories Open Worlds</p>
+        <div class="glow-divider"></div>
+    </div>
+
+    </div>
+ <!-- Top Featured Book -->
+<section class="carousel-section small-carousel">
+    <h2 class="carousel-title">Top Featured Book</h2>
+    <div class="scroll-wrapper carousel-wrapper">
+        <button class="scroll-btn left" onclick="scrollInfinite('book-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="book-carousel">
+            {% for i in range(1, 15) %}
+            <div class="book-card">
+                <img src="{{ url_for('static', filename='images/books/book' ~ i ~ '.jpg') }}" alt="Book {{ i }}">
+                <div class="book-title">Book {{ i }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="scroll-btn right" onclick="scrollInfinite('book-carousel', 1)">&#10095;</button>
+    </div>
+</section>
+
+<!-- Top Featured Comic -->
+<section class="carousel-section small-carousel">
+    <h2 class="carousel-title">Top Featured Comic</h2>
+    <div class="scroll-wrapper carousel-wrapper">
+        <button class="scroll-btn left" onclick="scrollInfinite('comic-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="comic-carousel">
+            {% for i in range(1, 15) %}
+            <div class="book-card">
+                <img src="{{ url_for('static', filename='images/comics/comic' ~ i ~ '.jpg') }}" alt="Comic {{ i }}">
+                <div class="book-title">Comic {{ i }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="scroll-btn right" onclick="scrollInfinite('comic-carousel', 1)">&#10095;</button>
+    </div>
+</section>
+
+<!-- Top Featured Short Story -->
+<section class="carousel-section small-carousel">
+    <h2 class="carousel-title">Top Featured Short Story</h2>
+    <div class="scroll-wrapper carousel-wrapper">
+        <button class="scroll-btn left" onclick="scrollInfinite('short-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="short-carousel">
+            {% for i in range(1, 15) %}
+            <div class="book-card">
+                <img src="{{ url_for('static', filename='images/stories/story' ~ i ~ '.jpg') }}" alt="Story {{ i }}">
+                <div class="book-title">Story {{ i }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="scroll-btn right" onclick="scrollInfinite('short-carousel', 1)">&#10095;</button>
+    </div>
+</section>
+
+<!-- Browse by Genre -->
+<section class="carousel-section small-carousel">
+    <h2 class="carousel-title">Browse by Genre</h2>
+    <div class="scroll-wrapper carousel-wrapper">
+        <button class="scroll-btn left" onclick="scrollInfinite('genre-carousel', -1)">&#10094;</button>
+        <div class="carousel" id="genre-carousel">
+            {% set genres = [
+                'Fantasy', 'Sci-Fi', 'Mystery', 'Romance', 'Horror', 'Adventure', 'Thriller',
+                'Drama', 'Comedy', 'Action', 'Slice of Life', 'Historical', 'Post-Apocalyptic',
+                'Steampunk', 'Cyberpunk', 'Supernatural', 'LitRPG', 'Isekai', 'Dark Fantasy'
+            ] %}
+            {% for genre in genres %}
+            <div class="genre-card">
+                <img src="{{ url_for('static', filename='images/genres/' ~ genre|lower|replace(' ', '_') ~ '.jpg') }}" alt="{{ genre }}">
+                <div class="book-title">{{ genre }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="scroll-btn right" onclick="scrollInfinite('genre-carousel', 1)">&#10095;</button>
+    </div>
+</section>
+ </section>
+
+    <!-- Footer -->
+<footer style="background-color: rgba(0, 0, 0, 0.6); padding: 20px; margin-top: 40px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; text-align: center;">
+        <div>
+            <h2 class="carousel-title">Social</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 10px;">
+                <a href="https://x.com/TheInkRift?t=nw0AtOQJ7B9tlLtYP5nzhg&s=09" class="enter-button" style="width: 200px;">Twitter</a>
+                <a href="https://www.reddit.com/u/TheInkRift/s/0WCjtNaGn4" class="enter-button" style="width: 200px;">Reddit</a>
+                <a href="https://www.facebook.com/share/1C1HJy3pKL" class="enter-button" style="width: 200px;">FaceBook</a>
+                <a href="https://discord.gg/a94JqzEquJ" class="enter-button" style="width: 200px;">Discord</a>
+            </div>
+        </div>
+        <div>
+            <h2 class="carousel-title">Contact Us</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 10px;">
+                <a href="mailto:support@inkrift.com" class="enter-button" style="width: 200px;">Email</a>
+                <a href="tel:+1234567890" class="enter-button" style="width: 200px;">Phone</a>
+                <a href="#" class="enter-button" style="width: 200px;">Report</a>
+                <a href="#" class="enter-button" style="width: 200px;">Forum</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- Side Banners with Lore Text -->
+<!-- LEFT BANNER -->
+<div class="side-banner left-banner">
+    <img src="{{ url_for('static', filename='images/left_banner.png') }}" alt="Left Banner">
+    <div class="lore-container">
+        In ancient ink, the realms were drawn—woven from thought, given breath by quill.<br><br>
+        Heroes carved fate in glyph and fire, shadows written into memory’s parchment.<br><br>
+        Across the rift, forgotten stories sleep beneath silver leaves and ruined crowns.<br><br>
+        The quill knows no master, only the will to shape what comes next.<br><br>
+        Begin. Forge. Unfold. For the page listens, and the realm stirs.
+        Let your tale spill forth like storm and starlight, as Inkrift awakens.
+    </div>
+</div>
+    <!-- RIGHT BANNER -->
+<div class="side-banner right-banner">
+    <img src="{{ url_for('static', filename='images/left_banner.png') }}" alt="Right Banner" style="transform: scaleX(-1);">
+    <div class="lore-container">
+        Beyond the Rift, echoes of fate drift through the silence of shattered oaths.<br><br>
+        Forgotten realms whisper secrets etched in starlight and steel.<br><br>
+        The page waits—empty, infinite, and aching to be born anew.<br><br>
+        Ancient fires stir beneath the ink, hungering for a new legend.<br><br>
+        Will you answer the call, or let silence write the end?<br><br>
+        The realm breathes still… waiting for your mark.
+    </div>
+</div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
