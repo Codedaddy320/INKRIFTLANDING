@@ -30,7 +30,7 @@
             {% for i in range(1, 15) %}
             <div class="book-card">
                 <img src="{{ url_for('static', filename='images/books/book' ~ i ~ '.jpg') }}" alt="Book {{ i }}">
-                <div class="book-title">Book {{ i }}</div>
+                <div class="book-title"> {{ i }}</div>
             </div>
             {% endfor %}
         </div>
@@ -47,7 +47,7 @@
             {% for i in range(1, 15) %}
             <div class="book-card">
                 <img src="{{ url_for('static', filename='images/comics/comic' ~ i ~ '.jpg') }}" alt="Comic {{ i }}">
-                <div class="book-title">Comic {{ i }}</div>
+                <div class="book-title">{{ i }}</div>
             </div>
             {% endfor %}
         </div>
@@ -64,7 +64,7 @@
             {% for i in range(1, 15) %}
             <div class="book-card">
                 <img src="{{ url_for('static', filename='images/stories/story' ~ i ~ '.jpg') }}" alt="Story {{ i }}">
-                <div class="book-title">Story {{ i }}</div>
+                <div class="book-title">{{ i }}</div>
             </div>
             {% endfor %}
         </div>
